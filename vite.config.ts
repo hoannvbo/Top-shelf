@@ -1,7 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        shop: resolve(__dirname, 'shop.html'),
+        detail: resolve(__dirname, 'detail-product.html'),
+        cart: resolve(__dirname, 'cart.html'),
+        pay: resolve(__dirname, 'pay-product.html'),
+        login: resolve(__dirname, 'login.html'),
+      },
+    },
+  },
+});
